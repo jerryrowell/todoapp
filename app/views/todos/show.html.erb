@@ -1,12 +1,16 @@
-<h1>Showing a todo</h1>
-
-  <p>
-    name: <%= @todo.name %>
-  </p>
+<h1 align="center"><%= @todo.name %></h1>
+<div class="col-md-4 col-md-offset-4 well">
+  
   
   <p>
-    description: <%= @todo.description %>
+    <%= simple_format(@todo.description) %>
   </p>
   
-  <%= link_to "Edit this todo", edit_todo_path(@todo) %> |
-  <%= link_to "Back to todo listing", todos_path %>
+  <div class="recipe-actions">
+      <%= link_to "Edit this todo", edit_todo_path(@todo), class: "btn btn-xs btn-warning" %>
+      <%= link_to "Delete this todo", todo_path(@todo), method: :delete,
+                                        data: { confirm: "Are you sure you want to delete this recipe?" },
+                                        class: "btn btn-xs btn-danger" %>
+      <%= link_to "Back to todo listing", todos_path, class: "btn btn-xs btn-primary" %>
+  </div>
+</div>

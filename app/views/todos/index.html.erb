@@ -1,21 +1,11 @@
-<h1>Listing all Todos</h1>
+<h1 align="center">Listing all Todos</h1>
 
-<p>
-  <%= link_to "Create a Todo", new_todo_path %>  
-</p>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
   <% @todos.each do |todo| %>
-    <tr>
-      <td><%= todo.name %></td>
-      <td><%= todo.description %></td>
-      <td><%= link_to "Edit", edit_todo_path(todo) %></td>
-      <td><%= link_to "Show", todo_path(todo) %></td>
-      <td><%= link_to "Delete", todo_path(todo), method: :delete, data: {confirm: "Are you sure?"} %></td>
-    </tr>
+    <div class="col-md-4 col-md-offset-4 well">
+      <h4><%= link_to todo.name, todo_path(todo) %></h4>
+      
+      <br>
+    </div>
   <% end %>
-</table>
+    
